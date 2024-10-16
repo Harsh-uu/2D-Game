@@ -11,12 +11,63 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            translate: -50% -50%;
+            transform: translate(-50%, -50%);
             max-width: 95%;
             max-height: 95%;
         }
         .assets {
             display: none;
+        }
+        @media (max-width: 768px) {
+            #canvas1 {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) rotate(90deg);
+                width: 100vh; /* Use viewport height for width */
+                height: auto; /* Maintain aspect ratio */
+                max-width: none;
+                max-height: none;
+                aspect-ratio: 3 / 2; /* Adjust this ratio based on your canvas aspect ratio */
+            }
+            .controls {
+                position: fixed;
+                transform: rotate(90deg);
+                bottom: 90px;
+                left: -10px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+                user-select: none;
+            }
+            .controls button {
+                /* width: 50px; */
+                height: 50px;
+                font-size: 20px;
+                border: none;
+                background-color: rgba(0, 0, 0, 0.5);
+                color: #fff;
+                border-radius: 5px;
+                user-select: none; /* Standard */
+                -webkit-user-select: none; /* Safari */
+                -moz-user-select: none; /* Firefox */
+                -ms-user-select: none; /* Internet Explorer/Edge */
+                touch-action: none; /* Prevent touch interactions like double-tap zoom */
+            }
+            .controls .horizontal {
+                display: flex;
+                gap: 10px;
+            }
+        }
+        @media (min-width: 769px) {
+            .controls {
+                display: none;
+            }
+            #canvas1 {
+                max-width: 99%;
+                max-height: 99%;
+            }
         }
     </style>
 </head>
@@ -26,6 +77,15 @@
     <div class="assets">
         <img src="./assets/map.png" id="map">
         <img src="./assets/hero1.png" id="hero1">
+    </div>
+
+    <div class="controls">
+        <button id="up">↑</button>
+        <div class="horizontal">
+            <button id="left">←</button>
+            <button id="down">↓</button>
+            <button id="right">→</button>
+        </div>
     </div>
 
     <script src="./game.js" type="module"></script>

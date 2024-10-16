@@ -139,5 +139,30 @@ window.addEventListener('load', () => {
     }
   }
 
-  const game = new Game();
+  let imagesLoaded = 0;
+  const totalImages = 2;
+  
+  function checkAllImagesLoaded() {
+    if (imagesLoaded === totalImages) {
+      const game = new Game();
+    }
+  }
+
+  function imageLoaded() {
+    imagesLoaded++;
+    checkAllImagesLoaded();
+  }
+
+  if (map.complete) {
+    imageLoaded();
+  } else {
+    map.addEventListener('load', imageLoaded);
+  }
+
+  if (heroImage.complete) {
+    imageLoaded();
+  } else {
+    heroImage.addEventListener('load', imageLoaded);
+  }
+  
 });

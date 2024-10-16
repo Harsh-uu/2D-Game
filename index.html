@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rebel Knight</title>
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <style>
+        #canvas1 {
+            border: 2px solid black;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            translate: -50% -50%;
+            max-width: 95%;
+            max-height: 95%;
+        }
+        .assets {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas1"></canvas>
+
+    <div class="assets">
+        <img src="/assets/map.png" id="map">
+        <img src="/assets/hero1.png" id="hero1">
+    </div>
+
+    <script src="game.js" type="module"></script>
+</body>
+</html>
